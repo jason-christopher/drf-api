@@ -17,8 +17,12 @@ class HomeTests(APITestCase):
         testuser1.save()
 
         test_home = Home.objects.create(
-            street_address="1234 Test St.",
             owner=testuser1,
+            street_address="1234 Test St.",
+            city="Orlando",
+            state="FL",
+            zip=12345,
+            square_feet=1000,
             description="Great house.",
         )
         test_home.save()
@@ -51,7 +55,7 @@ class HomeTests(APITestCase):
 
     def test_create_home(self):
         url = reverse("home_list")
-        data = {"owner": 1, "street_address": "4567 Test St.", "city": "Orlando", "state": "FL", "square_feet": 1200, "zip": 12345, "description": "Even better house"}
+        data = {"owner": 1, "street_address": "4567 Test St.", "city": "Orlando", "state": "FL", "zip": 12345,  "square_feet": 1200, "description": "Even better house"}
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         homes = Home.objects.all()
