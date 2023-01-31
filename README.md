@@ -22,4 +22,4 @@
 ### Tests
 
 * Run tests with the command: `python manage.py test`.
-* It fails 2 of the tests, but I don't know why.
+* All 6 tests passing!

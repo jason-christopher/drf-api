@@ -3,7 +3,7 @@ from .serializers import HomeSerializer
 from .models import Home
 
 
-class HomeList(generics.ListAPIView):
+class HomeList(generics.ListCreateAPIView):
     queryset = Home.objects.all()
     serializer_class = HomeSerializer
 
